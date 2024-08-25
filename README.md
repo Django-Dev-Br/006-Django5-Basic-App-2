@@ -61,7 +61,7 @@ Um app no Django é uma aplicação web que faz algo — um grupo de modelos, vi
 
 7. **Acesse a View no Navegador**:
 
-   Abra o navegador e vá para o endereço [http://127.0.0.1:8000/status/](http://127.0.0.1:8000/status/) para ver a mensagem:
+   Abra o navegador e vá para o endereço [http://127.0.0.1:8000/status/](http://127.0.0.1:8000/) para ver a mensagem:
 
    ```
    app up and running properly
