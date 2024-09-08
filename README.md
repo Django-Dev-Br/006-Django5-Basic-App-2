@@ -36,7 +36,7 @@ Um app no Django é uma aplicação web que faz algo — um grupo de modelos, vi
 
 1. **Clone o repositório**:
     ```bash
-    git clone https://github.com/Django-Dev-Br/005-Django-4-Basic-App-2.git
+    git clone https://github.com/Django-Dev-Br/006-Django-4-Basic-App-2.git
     ```
 
 2. **Crie um ambiente virtual**:
@@ -71,7 +71,7 @@ Um app no Django é uma aplicação web que faz algo — um grupo de modelos, vi
 5.**Acesse a pasta do repositório**:
 
     ```bash
-    cd 005-Django-4-Basic-App-2
+    cd 006-Django-4-Basic-App-2
     ```
     
 6. **Execute o servidor de desenvolvimento**:
