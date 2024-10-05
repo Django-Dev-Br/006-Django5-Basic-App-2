@@ -1,7 +1,6 @@
-# myapp/urls.py
 from django.urls import path
-from .views import status_view
+from .views import example_view  # Importa a view `example_view` do arquivo `views.py` do app
 
 urlpatterns = [
-    path('', status_view),
+    path('', example_view),  # Define a rota principal ('/') e associa à função `example_view`
 ]

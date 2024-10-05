@@ -14,9 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include  # Inclui a função `include` para redirecionar URLs de outros apps
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('myapp.urls')),
+    path('admin/', admin.site.urls),  # URL para acessar o painel administrativo do Django
+    path('', include('myapp.urls')),  # Redireciona para o arquivo `urls.py` do app `myapp`
 ]
