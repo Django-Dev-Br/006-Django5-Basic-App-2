@@ -112,7 +112,78 @@ Um app no Django é uma aplicação web que faz algo — um grupo de modelos, vi
    ```
    app up and running properly
    ```
+### Estrutura de Diretórios do Projeto = 1 arquivo (manage.py) e 1 pasta (o projeto Django) contendo 5 outros arquivos.
 
+```
+005-Django5-Basic-App/
+├── db.sqlite3          # Banco de dados SQLite gerado pelo Django
+├── manage.py           # CLI do Django - script que recebe e executa os comandos do Django via terminal
+├── myapp/              # Diretório do aplicativo Django criado para essa funcionalidade
+│   ├── __init__.py     # Marca o diretório como um pacote Python, permitindo importações
+│   ├── apps.py         # Configurações da aplicação Django (metadados da aplicação)
+│   ├── urls.py         # Arquivo que define as rotas específicas do app
+│   ├── views.py        # arquivo que carrega os templates ou páginas html
+│   ├── migrations/     # Diretório onde ficam os arquivos com as estruturas das tabelas do seu banco de dados
+├── myproject/          # Diretório principal do projeto Django
+│   ├── __init__.py     # Marca o diretório como um pacote Python
+│   ├── asgi.py         # Configurações para o servidor ASGI (usado para aplicações assíncronas)
+│   ├── settings.py     # Configurações do projeto (banco de dados, apps instalados, etc.)
+│   ├── urls.py         # Mapeamento de requisições HTTP e redirecionamento para os templates HTML
+│   ├── wsgi.py         # Configurações para o servidor WSGI (usado para servir a aplicação)
+│   └── __pycache__/    # Diretório com arquivos de cache do projeto (não deve ser versionado)
+├── README.md           # Documento explicativo sobre o projeto e como configurá-lo (essa que vc está lendo agora)
+└── requirements.txt    # Lista de pacotes Python necessários para o projeto
+
+```
+### Código deste projeto
+
+arquivo: myprojecto/urls.py
+
+```python
+from django.contrib import admin
+from django.urls import path, include  # Inclui a função `include` para redirecionar URLs de outros apps
+
+urlpatterns = [
+    path('admin/', admin.site.urls),  # URL para acessar o painel administrativo do Django
+    path('', include('myapp.urls')),  # Redireciona para o arquivo `urls.py` do app `myapp`
+]
+```
+arquivo: myapp/urls.py
+
+```python
+from django.urls import path
+from .views import example_view  # Importa a view `example_view` do arquivo `views.py` do app
+
+urlpatterns = [
+    path('', example_view),  # Define a rota principal ('/') e associa à função `example_view`
+]
+
+```
+
+arquivo: myapp/views.py
+
+```python
+from django.http import HttpResponse  # Importa a classe HttpResponse, responsável por retornar respostas HTTP
+
+def example_view(request):
+    return HttpResponse("app up and running properly")  # Retorna uma mensagem indicando que o app está funcionando corretamente
+```
+
+Comentários:
+
+example_view(request): Define uma função que recebe uma requisição HTTP e retorna uma resposta indicando que a aplicação está funcionando bem.
+
+Simplicidade da Criação de uma View no Django
+
+Neste projeto, criar uma resposta simples em uma view do Django foi extremamente fácil e direto. Foi necessário modificar apenas três arquivos:
+
+1. myproject/urls.py: Atualizamos o arquivo para redirecionar as rotas para o urls.py do app (myapp).
+
+2. myapp/urls.py: Criamos um novo arquivo de URLs para definir a rota principal ('/') e vinculá-la à função example_view.
+
+3. myapp/views.py: Criamos a função example_view que retorna uma resposta HTTP simples indicando que a aplicação está funcionando corretamente.
+
+Com apenas essas poucas alterações, conseguimos configurar o Django para retornar uma mensagem no navegador ao acessar a URL principal ('/'). Isso mostra o quão ágil e eficiente é trabalhar com o Django, permitindo criar e testar respostas de forma muito prática.
 
 ### Como Criar um Novo App Django
 
