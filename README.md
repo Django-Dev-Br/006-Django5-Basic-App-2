@@ -1,5 +1,12 @@
 
-# 006 Django 4 Basic App 2 (Import URLconf)
+# 006 Django 5 - Basic App 2 (Import URLconf)
+
+Existem duas formas de criar rotas (ou URLs) amigáveis no Django. No repositório anterior [projeto nº 5](https://github.com/Django-Dev-Br/005-Django5-Basic-App), utilizamos a abordagem de importar diretamente a view do app para dentro do arquivo urls.py do projeto principal. Agora, vamos experimentar outra maneira de organizar as rotas: redirecionar para um arquivo urls.py específico do próprio app.
+
+Essa abordagem torna o projeto mais modular e organizado, especialmente em aplicações maiores, pois cada app gerencia suas próprias URLs, facilitando a manutenção e a escalabilidade do projeto. Ao fazer isso, movemos o controle das rotas específicas para o urls.py do app, enquanto o arquivo urls.py do projeto principal apenas referencia os arquivos urls.py dos apps.
+
+Dessa forma, o arquivo urls.py do projeto centraliza as rotas de diferentes apps, enquanto cada app se torna responsável por gerenciar suas próprias URLs.
+
 
 ### O que é um App Django?
 
@@ -10,7 +17,8 @@ Um app no Django é uma aplicação web que faz algo — um grupo de modelos, vi
 ### Requisitos
 
 - **Python 3.12 com PIP e venv**
-
+- **o Django 5 requer Python 3.10 ou superior.**
+- 
 - **No [repositório 001](https://github.com/Django-Dev-Br/001-django4-basic-project) há explicações sobre PIP e venv**
   
   [Baixar Python 3.12](https://www.python.org/downloads/release/python-3122/)
@@ -36,7 +44,7 @@ Um app no Django é uma aplicação web que faz algo — um grupo de modelos, vi
 
 1. **Clone o repositório**:
     ```bash
-    git clone https://github.com/Django-Dev-Br/006-Django-4-Basic-App-2.git
+    git clone https://github.com/Django-Dev-Br/006-Django5-Basic-App-2.git
     ```
 
 2. **Crie um ambiente virtual**:
@@ -63,15 +71,32 @@ Um app no Django é uma aplicação web que faz algo — um grupo de modelos, vi
     ```
 
 4. **Instale o Django**:
-   
-    ```python
-    pip install django==4.2.15
+
+   Fazer a instalação após a ativação da virtual env fará com que a instalação seja feita nessa pasta ao invés do computador. Isso significa que o pacote Django não estará disponivel para todos os usuários do computador, mas apenas para o contexto no qual essa venv esteja ativada. Veremos sua ativação logo abaixo.
+
+    **Instalação manualmente via gerenciador de dependências PIP**
+    ```bash
+    pip install django
     ```
+    - use, preferencialmente, a versão 5.1. Para tanto, execute o comando:
+
+     ```bash
+    pip install  "django>=5.1,<=5.2"
+    ```
+
+    ----- **OU** -----
+
+    **Instalação via arquivo requirements**
+    ```bash
+    pip install -r requirements.txt
+    ```
+    O arquivo requirements.txt é um arquivo de texto que contém uma lista de pacotes a ser instalado em uma venv. É uma boa prática de programação do ecossistema Python.
+    
 
 5.**Acesse a pasta do repositório**:
 
     ```bash
-    cd 006-Django-4-Basic-App-2
+    cd 006-Django5-Basic-App-2
     ```
     
 6. **Execute o servidor de desenvolvimento**:
@@ -80,7 +105,7 @@ Um app no Django é uma aplicação web que faz algo — um grupo de modelos, vi
     python manage.py runserver
     ```
 
-8. **Acesse a View no Navegador**:
+7. **Acesse a View no Navegador**:
 
    Abra o navegador e vá para o endereço [http://127.0.0.1:8000/](http://127.0.0.1:8000/) para ver a mensagem:
 
@@ -96,6 +121,7 @@ Para criar um novo app em um projeto Django, use o seguinte comando:
 ```python
 python manage.py startapp nome_do_app
 ```
+Antes, veja como criar um projeto Django no [repositório nº 01](https://github.com/Django-Dev-Br/001-django5-basic-project/tree/main)
 
 ### Sobre Nosso Treinamento Prático-Profissional com projeto real para iniciantes e avançados em web DevOps Full-stack com Python, Django, Bootstrap e Linux.
 
