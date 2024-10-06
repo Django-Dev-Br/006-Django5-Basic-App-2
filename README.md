@@ -70,7 +70,13 @@ Um app no Django é uma aplicação web que faz algo — um grupo de modelos, vi
     source myvenv/bin/activate  
     ```
 
-4. **Instale o Django**:
+4. **Acesse a pasta do repositório**:
+
+    ```bash
+    cd 006-Django5-Basic-App-2
+    ```
+    
+5. **Instale o Django**:
 
    Fazer a instalação após a ativação da virtual env fará com que a instalação seja feita nessa pasta ao invés do computador. Isso significa que o pacote Django não estará disponivel para todos os usuários do computador, mas apenas para o contexto no qual essa venv esteja ativada. Veremos sua ativação logo abaixo.
 
@@ -83,7 +89,6 @@ Um app no Django é uma aplicação web que faz algo — um grupo de modelos, vi
      ```bash
     pip install  "django>=5.1,<=5.2"
     ```
-
     ----- **OU** -----
 
     **Instalação via arquivo requirements**
@@ -91,13 +96,6 @@ Um app no Django é uma aplicação web que faz algo — um grupo de modelos, vi
     pip install -r requirements.txt
     ```
     O arquivo requirements.txt é um arquivo de texto que contém uma lista de pacotes a ser instalado em uma venv. É uma boa prática de programação do ecossistema Python.
-    
-
-5.**Acesse a pasta do repositório**:
-
-    ```bash
-    cd 006-Django5-Basic-App-2
-    ```
     
 6. **Execute o servidor de desenvolvimento**:
    
